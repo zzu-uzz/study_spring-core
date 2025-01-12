@@ -7,24 +7,24 @@ import org.junit.jupiter.api.Test;
 
 public class MemberServiceTest {
 
-    MemberService memberService;
+  MemberService memberService;
 
-    @BeforeEach
-    public void beforeEach() {
-        AppConfig appConfig = new AppConfig();
-        memberService = appConfig.memberService();
-    }
+  @BeforeEach
+  public void beforeEach() {
+    AppConfig appConfig = new AppConfig();
+    memberService = appConfig.memberService();
+  }
 
-    @Test
-    void join() {
-        // given
-        Member member = new Member(1L, "memberA", Grade.VIP);
+  @Test
+  void join() {
+    // given
+    Member member = new Member(1L, "memberA", Grade.VIP);
 
-        // when
-        memberService.join(member);
-        Member findMember = memberService.findMember(1l);
+    // when
+    memberService.join(member);
+    Member findMember = memberService.findMember(1l);
 
-        // then
-        Assertions.assertEquals(member, findMember);
-    }
+    // then
+    Assertions.assertEquals(member, findMember);
+  }
 }

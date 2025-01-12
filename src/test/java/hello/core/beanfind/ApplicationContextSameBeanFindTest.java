@@ -1,17 +1,12 @@
 package hello.core.beanfind;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import hello.core.AppConfig;
-import hello.core.discount.DiscountPolicy;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemberService;
-import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
 import java.util.Map;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
@@ -21,7 +16,8 @@ import org.springframework.context.annotation.Configuration;
 
 public class ApplicationContextSameBeanFindTest {
 
-  AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SameBeanConfig.class);
+  AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(
+      SameBeanConfig.class);
 
   @Test
   @DisplayName("타입으로 조회시 같은 타입이 둘 이상 있으면, 중복 오류가 있다")
@@ -48,10 +44,8 @@ public class ApplicationContextSameBeanFindTest {
     assertEquals(2, beansOfType.size());
   }
 
-
-
   @Configuration
-  static class SameBeanConfig{
+  static class SameBeanConfig {
 
     @Bean
     public MemberRepository memberRepository1() {
