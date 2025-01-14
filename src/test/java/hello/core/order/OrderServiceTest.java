@@ -1,5 +1,7 @@
 package hello.core.order;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import hello.core.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
@@ -27,6 +29,6 @@ public class OrderServiceTest {
     memberService.join(member);
 
     Order order = orderService.createOrder(memberId, "itemA", 10000);
-    Assertions.assertEquals(order.getDiscountPrice(), 1000);
+    assertEquals(1000, order.getDiscountPrice());
   }
 }
